@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "aiomarionette"
-version = "0.0.1.post1"
+version = "0.0.2"
 description = "Firefox Marionette client for asyncio"
 readme = "README.md"
 authors = ["Dustin C. Hatch <dustin@hatch.name>"]
