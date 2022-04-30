@@ -1,0 +1,5 @@
+/.venv
+/build
+/dist
+.mypy_cache/
+*.py[co]

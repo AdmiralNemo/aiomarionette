@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "aiomarionette"
+version = "0.0.1"
+description = "Firefox Marionette client for asyncio"
+authors = ["Dustin C. Hatch <dustin@hatch.name>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+mypy = "^0.942"
+pylint = "^2.13.2"
+rope = "^0.23.0"
+Sphinx = "^4.5.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+skip-string-normalization = true
+
+[tool.isort]
+line_length = 79
+ensure_newline_before_comments = true
+force_grid_wrap = 0
+include_trailing_comma = true
+lines_after_imports = 2
+multi_line_output = 3
+use_parentheses = true
+
+[tool.mypy]
+mypy_path = 'src:stubs'
+namespace_packages = true
+ignore_missing_imports = true
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unused_ignores = true
+
+allow_untyped_globals = false
+allow_redefinition = false
+strict_optional = true
+disallow_subclassing_any = true
+disallow_any_generics = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_return_any = true
