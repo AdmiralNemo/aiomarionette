@@ -174,6 +174,26 @@ class WebDriverBase(_BaseRPC, metaclass=abc.ABCMeta):
             'WebDriver:SwitchToWindow', handle=handle, focus=focus
         )
 
+    async def take_screenshot(
+        self,
+        *,
+        hash: bool = False,  # pylint: disable=redefined-builtin
+        full: bool = True,
+        scroll: bool = True,
+    ) -> str:
+        '''Take a screenshot of the current frame
+
+        :returns: Lossless PNG image encoded as a base-64 Unicode string
+        '''
+
+        res: Dict[str, str] = await self._send_message(
+            'WebDriver:TakeScreenshot',
+            full=full,
+            hash=hash,
+            scroll=scroll,
+        )
+        return res['value']
+
 
 class Marionette(WebDriverBase):
     '''Firefox Marionette session
