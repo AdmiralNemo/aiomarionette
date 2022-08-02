@@ -4,6 +4,8 @@ version = "0.0.3"
 description = "Firefox Marionette client for asyncio"
 readme = "README.md"
 authors = ["Dustin C. Hatch <dustin@hatch.name>"]
+repository = "https://github.com/AdmiralNemo/aiomarionette"
+license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.8"
