@@ -255,11 +255,21 @@ class Marionette(WebDriverBase):
                 self.port,
             )
             try:
+                res = await loop.getaddrinfo(
+                    self.host, self.port, type=socket.SOCK_STREAM
+                )
+                if res:
+                    family = res[0][0]
+                    host, port = res[0][4][:2]
+                else:
+                    host = self.host
+                    port = self.port
+                    family = socket.AF_INET
                 transport, _protocol = await loop.create_connection(
                     lambda: _MarionetteProtocol(self),
-                    host=self.host,
-                    port=self.port,
-                    family=socket.AF_INET6,
+                    host=host,
+                    port=port,
+                    family=family,
                 )
                 fut = self._waiting[-1] = loop.create_future()
                 hello: Dict[str, Any] = await fut
